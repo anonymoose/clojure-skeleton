@@ -37,7 +37,7 @@ chmod +x init
 - Start up a browser to [http://localhost:5000](http://localhost:5000)
 
 ## What the hell just happened?
-You ran a script blind off the internet.  Don't do that.  All it did was:
+You ran a script blind off the internet, didn't you.  Don't do that.  All it did was:
 
 1. Cloned everything for this project from git.
 
