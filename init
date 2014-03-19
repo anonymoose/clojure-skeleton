@@ -1,0 +1,41 @@
+#!/bin/bash
+
+[ -z "${1}" ] && exit
+
+set -x
+
+export PROJ=$1
+
+git clone https://github.com/anonymoose/clojure-skeleton.git
+mv clojure-skeleton $PROJ
+cd $PROJ
+
+perl -p -i -e "s/myproject/${PROJ}/ig" `grep -ril myproject *`
+
+cd test
+mv myproject $PROJ
+cd ..
+cd src
+mv myproject $PROJ
+cd ..
+lein deps
+
+dropdb -U postgres ${PROJ}
+createdb -U postgres ${PROJ}
+psql -U postgres -c "create user ${PROJ} with password '${PROJ}';"
+psql -U postgres -c "alter database ${PROJ} owner to ${PROJ};"
+psql -U postgres -d ${PROJ} -c 'create extension "hstore";'
+psql -U postgres -d ${PROJ} -c 'create extension "fuzzystrmatch";'
+psql -U ${PROJ} -d ${PROJ} -f doc/schema.sql
+
+cp bin/password.skel bin/.password
+rm bin/password.skel
+
+rm -rf .git
+git init
+
+git add -A
+git commit -am "first commit"
+git status
+
+bin/dev
