@@ -5,7 +5,9 @@ Clojure + PostgreSQL + Bootstrap + jQuery
 
 
 # How to make it your own
-1. Clone the project
+
+1. Download init script
+
 
 
 > bin/rename projname
