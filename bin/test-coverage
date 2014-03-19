@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source `dirname $0`/.password
+
+pg_dump -U myproject -O -c myproject > bin/.tmpdb.sql
+
+bin/reload > /dev/null 2>&1
+
+#lein test | grep -iv pool | grep -v C3P0 2>&1
+lein cloverage
+
+psql -q -U myproject -d myproject -f bin/.tmpdb.sql > /dev/null 2>&1
+

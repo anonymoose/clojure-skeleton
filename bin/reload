@@ -1,0 +1,7 @@
+#!/bin/bash
+
+dropdb -U postgres myproject
+createdb -U postgres myproject
+psql -U postgres "alter database myproject owner to myproject"
+psql -U myproject -d myproject -f doc/schema.sql
+
