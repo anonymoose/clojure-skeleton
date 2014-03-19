@@ -37,7 +37,8 @@ chmod +x init
 - Start up a browser to [http://localhost:5000](http://localhost:5000)
 
 ## What the hell just happened?
-1. Cloned everything
+You ran a script blind off the internet.  Don't do that.  All it did was:
+1. Cloned everything for this project from git.
 2. Renamed the directory and all references to "myproject" to your project name.
 3. Created a database and set up security settings only suitable for a dev environment.  If you run with your password 
 the same as your project name in production, you are an idiot.
@@ -83,6 +84,9 @@ myproject.core=>
 ```
 - When you make a change in your files, just run "(re)" to reload everything.
 - Read the contents of doc/repl.clj and add to taste as your project progresses.
+
+## But wait, I've only got Windows!
+I am lucky enough to have Mac.  If I get time I'll extend this to Windows.  Now fielding pull requests...
 
 ## Where are the templates?
 - resources/templates/*.html
