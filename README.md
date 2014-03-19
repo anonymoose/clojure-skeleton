@@ -14,7 +14,7 @@ Layout: Bootstrap
 
 Database: PostgreSQL, via Korma
 
-## How to make it your own
+## How do I make it my own?
 
 - CD to wherever you keep your projects
 ```
@@ -35,6 +35,20 @@ chmod +x init
 ```
 
 - Start up a browser to [http://localhost:5000](http://localhost:5000)
+
+## What the hell just happened?
+1. Cloned everything
+2. Renamed the directory and all references to "myproject" to your project name.
+3. Created a database and set up security settings only suitable for a dev environment.  If you run with your password 
+the same as your project name in production, you are an idiot.
+4. Creates a bin/.password file to hold your passwords so scripts work locally.
+5. Removes clojure-skeleton's git directory and initializes a git repo.
+6. Initial commit
+7. Starts up the app on http://localhost:5000
+
+## Wow, I'm basically done!  How do I put it on Heroku?
+- You're not done, but this may have saved you a week.
+- [https://devcenter.heroku.com/articles/clojure-web-application](Good article on putting clojure apps on Heroku)
 
 ## Where is everything?
 - Entry point - src/$yourproject$/core.clj
